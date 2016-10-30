@@ -1,0 +1,147 @@
+===================================================== LINKS =====================================================
+https://angular.io/docs/ts/latest/quickstart.html
+https://ng-bootstrap.github.io/#/components/carousel
+https://www.youtube.com/watch?v=hXfigUyeHaY&list=PL6gx4Cwl9DGBYxWxJtLi8c6PGjNKGYGZZ
+https://www.youtube.com/watch?v=sTIyoBttyUc&list=PLYxzS__5yYQkwEnBXU6e_gYXLo_rscFQm&index=5 (codeman)
+https://www.youtube.com/watch?v=dhc956kkuRk (Angular 2 Shopping Application)
+
+===================================================== Introduction ==============================================
+
+Angular is a framework from Google.
+It can be written in different languages like typescript, dart or javascript.
+It is a cross plateform: Web, Desktop and Native Mobile Apps.
+Google is behind the Angular 2.
+
+Install node and npm from nodejs.org
+And check the version by using this command (node -v, npm -v)
+More commands (npm cache clean -f) => for cache clear
+
+npm start (for start angular 2 app)
+when you start your angular 2 app hit (localhost:3001) now you can see the browsersync console. 
+If you did any changes in source file, it can show you. 
+
+Components are the basic building blocks of Angular applications. 
+A component controls a portion of the screen—a view—through its associated template.
+Every angular2 app has atleast one component(root component) named "AppComponent".
+Four important files (index.html, app.module.ts, app.component.ts, main.ts)
+
+===================================================== Configuration Files =====================================================
+
+package.json: identifies npm package dependencies for the project.
+tsconfig.json: defines how the TypeScript compiler generates JavaScript from the project's files.
+typings.json: provides additional definition files for libraries that the TypeScript compiler doesn't natively recognize.
+systemjs.config.js: provides information to a module loader about where to find application modules, and registers all the necessary 
+app.module.ts is the entry point of angular2 app.
+
+NgModule is a decorator function that takes a single metadata object whose properties describe the module. The most important properties are:
+
+declarations - the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
+exports - the subset of declarations that should be visible and usable in the component templates of other modules.
+imports - other modules whose exported classes are needed by component templates declared in this module.
+providers - creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
+bootstrap - the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
+
+
+====================================================== ANGULAR CLI ==============================================
+Angular CLI helps to make components, services and routers.
+-ng generate (for generate angualr components)
+
+-npm install -g angular-cli
+
+-npm uninstall -g angular-cli
+-npm cache clean
+-npm install -g angular-cli@latest 
+
+ng test (for unit test)
+ng e2e (for e2e test)
+ng build (for build an app)
+==================================================================================================================
+
+Create angular2 app using angular cli:
+
+-ng new <app-name> (automatically generate essential modules, components etc for your angular2 app)
+-ng serve (for start your angular2 app)
+Now hit localhost:4200
+
+=================================================== Details ====================================================== 
+
+Directives:
+It adds behaviours and styles to elements.
+3 types of directives are there.
+
+-attribute ([ngStyle]="setStyles()")
+-structural (*ngIf="student")
+-components
+
+Components:
+-ng g component zain (create component using cli)
+Components are types of directives. They are basically building blocks of angular 2 app.
+It is combination of controller and view.
+
+Services:
+They are just classes that provides data to your angular application.
+Services implement the concept of dependency.
+providers i.e. providers: [StockService] provides
+ data to components.
+
+Pipes:
+ng g pipe dateFormatter (create pipe)
+{{ today | date: "dd/MM/yyy hh:mm a"}}  //date format in angular2 application
+
+Routing:
+Routing controls the flow of your angular 2 application based on url.
+
+==================================================================================================================
+Built-In Directives:
+
+*ngFor:
+It works like a for loop
+
+*ngIF:
+It is structural directive.
+It is used to show/hide elements.
+It is used to make conditions.
+
+// ngIf="false"
+
+*ngSwitch:
+It is also work like switch case statement which matches the condition. 
+
+ngStyle:
+[ngStyle]="{'color':'red'}"
+
+ngClass:
+It add/remove whole class from the element.
+[ngClass]="{customClass: true, centerClass: false}" //Object type class
+[ngClass]="['customClass', 'centerClass']" //Attribute type class
+
+==================================================================================================================
+
+-The moduleId: module.id property sets the base for module-relative loading of the templateUrl.
+-In index.html file there is only root component, this file is place in root directory
+-In main.ts file, you define the cross browser compatibility.
+
+Dependency Injector (@Injectable):
+Dependency injection has always been one of Angular’s biggest features and selling points. 
+It allows us to inject dependencies in different components across our applications, without needing to know, 
+how those dependencies are created, or what dependencies they need themselves. 
+However, it turns out that the current dependency injection system in Angular 1 has some problems that need to be solved in Angular 2, 
+in order to build the next generation framework.
+
+Routing:
+The Angular router is an external, optional Angular NgModule called RouterModule. 
+The router is a combination of multiple provided services (RouterModule), multiple directives 
+(RouterOutlet, RouterLink, RouterLinkActive), and a configuration (Routes). 
+e.g.
+import { RouterModule }   from '@angular/router';
+
+RouterModule.forRoot([
+  {
+    path: 'heroes',
+    component: HeroesComponent
+  }
+])
+path: the router matches this route's path to the URL in the browser address bar (heroes).
+component: the component that the router should create when navigating to this route (HeroesComponent).
+
+
